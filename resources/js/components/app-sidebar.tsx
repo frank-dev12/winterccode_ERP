@@ -1,7 +1,5 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, FolderGit2, LayoutGrid } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
-import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
 import {
@@ -13,28 +11,21 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
+import { homeModule, operationModules } from '@/lib/operation';
 import { dashboard } from '@/routes';
 import type { NavItem } from '@/types';
 
 const mainNavItems: NavItem[] = [
     {
-        title: 'Dashboard',
+        title: homeModule.title,
         href: dashboard(),
-        icon: LayoutGrid,
+        icon: homeModule.icon,
     },
-];
-
-const footerNavItems: NavItem[] = [
-    {
-        title: 'Repository',
-        href: 'https://github.com/laravel/react-starter-kit',
-        icon: FolderGit2,
-    },
-    {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#react',
-        icon: BookOpen,
-    },
+    ...operationModules.map((module) => ({
+        title: module.title,
+        href: module.href,
+        icon: module.icon,
+    })),
 ];
 
 export function AppSidebar() {
@@ -57,7 +48,9 @@ export function AppSidebar() {
             </SidebarContent>
 
             <SidebarFooter>
-                <NavFooter items={footerNavItems} className="mt-auto" />
+                <p className="px-3 pb-2 text-xs text-muted-foreground group-data-[collapsible=icon]:hidden">
+                    Versión 1.0
+                </p>
                 <NavUser />
             </SidebarFooter>
         </Sidebar>

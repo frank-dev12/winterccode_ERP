@@ -4,7 +4,9 @@ WINTER C CODE ERP versión 1.0.
 
 Aplicación Laravel integrada con React, TypeScript, Inertia y Tailwind CSS. PostgreSQL es la base de datos de la aplicación. Cada empresa se instala por separado, con el mismo código y su propio archivo `.env`: clave de aplicación, URL y base de datos. No hay una aplicación frontend separada ni un despliegue compartido entre empresas.
 
-La autenticación incluida es la del starter kit oficial de Laravel con React (Laravel Fortify): registro, inicio de sesión, verificación de correo, restablecimiento de contraseña, perfil, doble factor y passkeys. Los roles del ERP se agregarán después. Esta base no incluye todavía los módulos de productos, inventario, ventas ni caja.
+La autenticación incluida es la del starter kit oficial de Laravel con React (Laravel Fortify): registro, inicio de sesión, verificación de correo, restablecimiento de contraseña, perfil, doble factor y passkeys. Los roles del ERP se agregarán después.
+
+La interfaz ya muestra el panel y las pantallas de productos, inventario, ventas y caja. Esas pantallas todavía no registran datos: el alta y los movimientos llegan con cada módulo.
 
 ## Requisitos
 
@@ -80,7 +82,7 @@ php artisan serve
 npm run dev
 ```
 
-Abre http://localhost:8000. La portada es pública. El panel queda en `/dashboard` después de registrar un usuario y verificar el correo.
+Abre http://localhost:8000. La portada es pública. Después de registrar un usuario y verificar el correo, el panel queda en `/dashboard`, con acceso a `/productos`, `/inventario`, `/ventas` y `/caja`.
 
 ## Comprobaciones
 
